@@ -1,0 +1,2 @@
+INDEX VERSION 1.127+E:\Programming\Git\arcemii\.metadata\.plugins\org.eclipse.jdt.core
+2501520862.index
