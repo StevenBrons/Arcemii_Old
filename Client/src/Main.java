@@ -1,8 +1,10 @@
 
 public class Main {
 
+	static Connection connection = new Connection();
+
 	public static void main(String args[]) {
-		new Connection();
+		connection.send("USERDATA");
 		new Frame();
 	}
 

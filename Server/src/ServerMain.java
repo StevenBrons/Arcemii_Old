@@ -1,6 +1,6 @@
 import java.io.IOException;
 
-public class Main {
+public class ServerMain {
 
 	public static void main(String[] args) {
 		try {
@@ -9,6 +9,7 @@ public class Main {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		new Frame();
 	}
 
 }
