@@ -1,4 +1,10 @@
 connect
 
 -login
-	-playerdata
+	input
+		-playerdata	String
+	output
+		-leveldata
+		
+
+
