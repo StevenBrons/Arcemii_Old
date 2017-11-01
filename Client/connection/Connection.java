@@ -23,11 +23,8 @@ public class Connection {
 
 					System.out.println("Just connected to " + client.getRemoteSocketAddress());
 					output = new ObjectOutputStream(client.getOutputStream());
-
-					output.writeObject("Test");
-
 					input = new ObjectInputStream(client.getInputStream());
-					System.out.println("Server says " + input.readUTF());
+					output.writeObject("Test");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -37,11 +34,11 @@ public class Connection {
 	}
 
 	public void send(Object o) {
-		try {
-			output.writeObject(o);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		 try {
+		 output.writeObject(o);
+		 } catch (IOException e) {
+		 e.printStackTrace();
+		 }
 	}
 
 }

@@ -20,13 +20,10 @@ public class Server {
 		while (true) {
 			try {
 				System.out.println("Waiting for client on port " + serverSocket.getLocalPort() + "...");
-				Socket server = serverSocket.accept();
+				Socket socket = serverSocket.accept();
 
-				Client c = new Client(server.getInputStream(), server.getOutputStream());
+				Client c = new Client(socket);
 				clients.add(c);
-
-				server.close();
-
 			} catch (SocketTimeoutException s) {
 				System.out.println("Socket timed out!");
 				break;
