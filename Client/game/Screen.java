@@ -6,28 +6,25 @@ import java.awt.image.BufferStrategy;
 
 import javax.swing.JPanel;
 
-public class Screen extends JPanel {
+public class Screen extends Canvas {
 
 	private static final long serialVersionUID = 1L;
 
-	Canvas canvas = new Canvas();
-
 	Screen() {
-		setLayout(new BorderLayout());
-		canvas.setBounds(0, 0, getWidth(), getHeight());
-		add(canvas, BorderLayout.CENTER);
+		setBackground(Color.WHITE);
 	}
 
 	public void drawAll() {
-		BufferStrategy bs = canvas.getBufferStrategy();
+		BufferStrategy bs = getBufferStrategy();
 		if (bs == null) {
-			canvas.createBufferStrategy(3);
+			createBufferStrategy(3);
 			return;
 		}
-
+		
+		System.out.println("awef");
 		Graphics2D g = (Graphics2D) bs.getDrawGraphics();
 		g.setColor(Color.RED);
-		g.fillRect(0, 0, 200, 200);
+		g.fillRect(100, 100, 200, 200);
 
 		g.dispose();
 		bs.show();
