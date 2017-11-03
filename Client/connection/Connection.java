@@ -8,6 +8,9 @@ public class Connection {
 	public static final String SERVER_NAME = "localhost";
 	public static final int SERVER_PORT = 26194;
 
+	private ObjectOutputStream out;
+	private ObjectInputStream in;
+
 	public Connection() {
 		Thread t = new Thread(new Runnable() {
 
@@ -18,19 +21,14 @@ public class Connection {
 					@SuppressWarnings("resource")
 					Socket client = new Socket(SERVER_NAME, SERVER_PORT);
 					System.out.println("Just connected to " + client.getRemoteSocketAddress());
-					Main.handler.player = new Player(new ObjectOutputStream(client.getOutputStream()));
 
-					Thread t = new Thread(new Runnable() {
-						@Override
-						public void run() {
-							try {
-								Main.handler.player.input(new ObjectInputStream(client.getInputStream()).readObject());
-							} catch (ClassNotFoundException | IOException e) {
-								e.printStackTrace();
-							}
+					while (true) {
+						try {
+							input(in.readObject());
+						} catch (ClassNotFoundException | IOException e) {
+							e.printStackTrace();
 						}
-					});
-					t.start();
+					}
 
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -38,6 +36,22 @@ public class Connection {
 			}
 		});
 		t.start();
+	}
+
+	public void input(Object o) {
+		switch (o.getClass().getName()) {
+		default:
+			System.err.println(o.getClass().getName());
+			break;
+		}
+	}
+
+	public void output(Object o) {
+		try {
+			out.writeObject(o);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

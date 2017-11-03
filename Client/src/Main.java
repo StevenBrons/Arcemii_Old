@@ -1,12 +1,16 @@
 
 public class Main {
 
-	static Connection connection = new Connection();
 	static GameHandler handler = new GameHandler();
-	static Frame f = new Frame();
+	static Frame frame = new Frame();
 
 	public static void main(String args[]) {
-		handler.output("USERDATA");
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		handler.output(new UserID("USERID"));
 		handler.start();
 	}
 

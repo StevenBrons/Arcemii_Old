@@ -22,6 +22,7 @@ public class List extends JComponent {
 
 	void add(String s) {
 		add(new JLabel(s), gb);
+		validate();
 	}
 
 }

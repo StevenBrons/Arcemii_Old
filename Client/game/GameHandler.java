@@ -2,6 +2,7 @@
 public class GameHandler {
 
 	public Player player;
+	public Connection connection = new Connection();;
 
 	public void start() {
 		Thread draw = new Thread(new Runnable() {
@@ -10,7 +11,7 @@ public class GameHandler {
 				while (true) {
 					try {
 						Thread.sleep(100);
-						Main.f.screen.drawAll();
+						Main.frame.screen.drawAll();
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -26,7 +27,7 @@ public class GameHandler {
 	}
 
 	public void output(Object o) {
-		Main.handler.player.output(o);
+		connection.output(o);
 	}
 
 }

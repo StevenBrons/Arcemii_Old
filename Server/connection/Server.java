@@ -8,8 +8,12 @@ public class Server {
 
 	ServerSocket serverSocket;
 
-	public Server() throws IOException {
-		serverSocket = new ServerSocket(SERVER_PORT);
+	public Server() {
+		try {
+			serverSocket = new ServerSocket(SERVER_PORT);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void runServer() {
@@ -17,8 +21,8 @@ public class Server {
 		while (true) {
 			try {
 				Socket socket = serverSocket.accept();
-				Player c = new Player(socket);
-				ServerMain.game.handler.addPlayer(c);
+				Client c = new Client(socket);
+				ServerMain.game.addPlayer(new Player(c));
 			} catch (IOException e) {
 				e.printStackTrace();
 				break;

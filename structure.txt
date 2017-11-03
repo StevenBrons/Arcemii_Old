@@ -1,0 +1,17 @@
+Client (Main)
+	-GameHandler 			#Handles client game (draw) machanics
+		-Player 			#All player data (x, y etc.)	
+		-Connection 		#All connection data
+	-Frame 					#UI Window
+		-Screen 			#Displays game
+
+
+Server (Main)
+	-Database 				#Get data from files (playerdata)
+	-GameHandler 			#Handles the game
+		-Player[] 			#All currently connected players
+			-Client 		#Server side equivalent of connection
+		-Level  			#Current level
+	-Frame 					#UI Window
+		-List 				#Just to log some console stuff (Sysout doesn't work with 2 programs)
+			
