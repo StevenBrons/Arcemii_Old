@@ -1,8 +1,7 @@
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 
-import objects.GObject;
+import objects.Obj;
 import tiles.Tile;
 
 public class Level implements Serializable {
@@ -14,10 +13,11 @@ public class Level implements Serializable {
 
 	int width = 10;
 	int height = 10;
+	
+	int x = 10;
 
 	Tile[][] tiles = new Tile[width][height];
-	ArrayList<GObject> object = new ArrayList<>();
-	HashMap<String, Object> data = new HashMap<>();
+	ArrayList<Obj> object = new ArrayList<>();
 
 	Level() {
 		for (int x = 0; x < width; x++) {

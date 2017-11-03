@@ -8,8 +8,8 @@ public class Connection {
 	public static final String SERVER_NAME = "localhost";
 	public static final int SERVER_PORT = 26194;
 
-	private ObjectOutputStream out;
-	private ObjectInputStream in;
+	public ObjectOutputStream out;
+	public ObjectInputStream in;
 
 	public Connection() {
 		Thread t = new Thread(new Runnable() {
@@ -19,9 +19,12 @@ public class Connection {
 				try {
 					System.out.println("Connecting to " + SERVER_NAME + " on port " + SERVER_PORT);
 					@SuppressWarnings("resource")
-					Socket client = new Socket(SERVER_NAME, SERVER_PORT);
-					System.out.println("Just connected to " + client.getRemoteSocketAddress());
-
+					Socket socket = new Socket(SERVER_NAME, SERVER_PORT);
+					System.out.println("Just connected to " + socket.getRemoteSocketAddress());
+					
+					out = new ObjectOutputStream(socket.getOutputStream());
+					in = new ObjectInputStream(socket.getInputStream());
+					
 					while (true) {
 						try {
 							input(in.readObject());
@@ -40,6 +43,9 @@ public class Connection {
 
 	public void input(Object o) {
 		switch (o.getClass().getName()) {
+		case "Level":
+			Main.handler.setLevel((Level) o);
+			break;
 		default:
 			System.err.println(o.getClass().getName());
 			break;

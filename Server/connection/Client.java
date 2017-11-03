@@ -1,7 +1,7 @@
 import java.io.IOException;
-import java.net.Socket;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.Socket;
 
 public class Client {
 
@@ -36,7 +36,7 @@ public class Client {
 			output(ServerMain.game.level);
 			break;
 		default:
-			System.err.println(o.getClass().getName());
+			ServerMain.frame.list.add(o.getClass().getName());
 			break;
 		}
 	}

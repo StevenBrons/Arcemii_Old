@@ -21,7 +21,9 @@ public class List extends JComponent {
 	}
 
 	void add(String s) {
+		gb.gridy = count;
 		add(new JLabel(s), gb);
+		count++;
 		validate();
 	}
 

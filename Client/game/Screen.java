@@ -14,10 +14,14 @@ public class Screen extends Canvas {
 		setBackground(Color.WHITE);
 	}
 
-	public void drawAll() {
+	public void drawAll(Level l) {
 		BufferStrategy bs = getBufferStrategy();
 		if (bs == null) {
 			createBufferStrategy(3);
+			return;
+		}
+
+		if (l == null) {
 			return;
 		}
 		
