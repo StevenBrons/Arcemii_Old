@@ -1,3 +1,4 @@
+import java.awt.Graphics;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,6 +23,15 @@ public class Level implements Serializable {
 
 	Level() {
 		
+	}
+	
+	public void drawLevel(Graphics g) {
+		for (int i = 0; i < tiles.length; i++) {
+			for (int j = 0; j < tiles[i].length; j++) {
+				g.setColor(tiles[i][j].c);
+				g.fillRect(tiles[i][j].posx * 10, tiles[i][j].posy * 10, 10, 10);
+			}
+		}
 	}
 
 }

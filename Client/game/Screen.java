@@ -25,10 +25,8 @@ public class Screen extends Canvas {
 			return;
 		}
 		
-		System.out.println("awef");
 		Graphics2D g = (Graphics2D) bs.getDrawGraphics();
-		g.setColor(Color.RED);
-		g.fillRect(100, 100, 200, 200);
+		l.drawLevel(g);
 
 		g.dispose();
 		bs.show();

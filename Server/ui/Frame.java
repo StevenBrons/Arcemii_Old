@@ -15,6 +15,7 @@ public class Frame extends JFrame {
 		setVisible(true);
 		setSize(640, 400);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
 		setTitle("Server");
 		add(list, BorderLayout.CENTER);
 	}
