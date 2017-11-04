@@ -26,9 +26,18 @@ public class Screen extends Canvas {
 		}
 		
 		Graphics2D g = (Graphics2D) bs.getDrawGraphics();
-		l.drawLevel(g);
+		drawLevel(g, l);
 
 		g.dispose();
 		bs.show();
+	}
+	
+	public void drawLevel(Graphics2D g, Level l) {
+		for (int i = 0; i < l.tiles.length; i++) {
+			for (int j = 0; j < l.tiles[i].length; j++) {
+				g.setColor(l.tiles[i][j].c);
+				g.fillRect(l.tiles[i][j].posx * 10, l.tiles[i][j].posy * 10, 10, 10);
+			}
+		}
 	}
 }

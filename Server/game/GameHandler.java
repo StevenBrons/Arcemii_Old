@@ -4,10 +4,11 @@ public class GameHandler {
 
 	boolean running = false;
 	ArrayList<Player> players = new ArrayList<>();
-	Level level = new Level();
+	TestGenerator test = new TestGenerator();
+	Level level;
 
 	public GameHandler() {
-
+		level = test.makeLevel(10, 10);
 	}
 
 	public void start() {

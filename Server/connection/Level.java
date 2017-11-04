@@ -18,18 +18,7 @@ public class Level implements Serializable {
 	ArrayList<Obj> object = new ArrayList<>();
 
 	Level() {
-		System.out.println("test2");
-		for (int x = 0; x < width; x++) {
-			for (int y = 0; y < height; y++) {
-				tiles[x][y] = new Tile();
-				tiles[x][y].posx = x;
-				tiles[x][y].posy = y;
-			}
-		}
+		System.out.println("Level gemaakt");
 	}
 	
-	public void drawLevel(){
-		//moet dit hier staan?
-	}
-
 }
