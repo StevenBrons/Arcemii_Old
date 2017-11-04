@@ -10,7 +10,6 @@ T	UI op scherm
 T	Abillity object
 T	Selecteer abillities scherm + Start knop
 
-S	Resloader maken
 S	Het maken van een object
 S	Dungeon instances
 S	Player instances ophalen

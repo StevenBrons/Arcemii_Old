@@ -1,10 +1,7 @@
-import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
-
-import javax.swing.JPanel;
 
 public class Screen extends Canvas {
 
@@ -24,14 +21,16 @@ public class Screen extends Canvas {
 		if (l == null) {
 			return;
 		}
-		
+
 		Graphics2D g = (Graphics2D) bs.getDrawGraphics();
 		drawLevel(g, l);
+
+		g.drawImage(ResLoader.getTexture("t1"), 19, 19, null);
 
 		g.dispose();
 		bs.show();
 	}
-	
+
 	public void drawLevel(Graphics2D g, Level l) {
 		for (int i = 0; i < l.tiles.length; i++) {
 			for (int j = 0; j < l.tiles[i].length; j++) {

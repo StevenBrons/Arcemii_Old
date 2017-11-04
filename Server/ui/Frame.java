@@ -1,6 +1,7 @@
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 
 public class Frame extends JFrame {
 
@@ -17,7 +18,7 @@ public class Frame extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setTitle("Server");
-		add(list, BorderLayout.CENTER);
+		add(new JScrollPane(list), BorderLayout.CENTER);
 	}
 
 }

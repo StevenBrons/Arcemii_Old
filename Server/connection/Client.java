@@ -18,10 +18,12 @@ public class Client {
 		Thread t = new Thread(new Runnable() {
 			@Override
 			public void run() {
-				try {
-					input(in.readObject());
-				} catch (ClassNotFoundException | IOException e) {
-					e.printStackTrace();
+				while (true) {
+					try {
+						input(in.readObject());
+					} catch (IOException | ClassNotFoundException e) {
+						e.printStackTrace();
+					}
 				}
 			}
 		});
