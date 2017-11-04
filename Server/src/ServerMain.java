@@ -7,6 +7,16 @@ public class ServerMain {
 	public static void main(String[] args) {
 		Server s = new Server();
 		s.start();
+		log("hoi");
+		log("hoi");
+		log("hoi");
+		log("hoi");
+		log("hoi");
+
+	}
+
+	public static void log(String s) {
+		frame.list.log(s);
 	}
 
 }

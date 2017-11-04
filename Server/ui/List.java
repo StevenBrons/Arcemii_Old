@@ -1,10 +1,16 @@
+import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.border.Border;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
-public class List extends JComponent {
+public class List extends JPanel {
 
 	/**
 	 * 
@@ -12,19 +18,25 @@ public class List extends JComponent {
 	private static final long serialVersionUID = 1L;
 
 	int count = 0;
-	GridBagConstraints gb = new GridBagConstraints();
+	String columnNames[] = { "Message" };
+	String rowData[][] = { { "test" } };
+	TableModel model = new DefaultTableModel(rowData, columnNames);
+	JTable table = new JTable(model);
 
 	public List() {
-		setLayout(new GridBagLayout());
-		gb.gridx = 0;
-		gb.gridy = 0;
+		setLayout(new BorderLayout());
+		add(table, BorderLayout.CENTER);
 	}
 
-	void add(String s) {
-		gb.gridy = count;
-		add(new JLabel(s), gb);
-		count++;
-		validate();
+	void log(String s) {
+		String newRowData[][] = new String[rowData.length + 1][1];
+		for (int i = 0; i < rowData.length; i++) {
+			newRowData[i] = rowData[i];
+		}
+		newRowData[rowData.length - 1] = new String[] { s };
+		rowData = newRowData;
+		model = new DefaultTableModel(rowData, columnNames);
+		table.setModel(model);
 	}
 
 }

@@ -30,13 +30,14 @@ public class Client {
 	}
 
 	public void input(Object o) {
-		ServerMain.frame.list.add(o.getClass().getName());
+		ServerMain.log(o.getClass().getName());
 		switch (o.getClass().getName()) {
 		case "UserID":
+			ServerMain.log(((UserID) o).getUserID());
 			output(ServerMain.game.level);
 			break;
 		default:
-			ServerMain.frame.list.add(o.getClass().getName());
+			ServerMain.log(o.getClass().getName());
 			break;
 		}
 	}
