@@ -21,7 +21,16 @@ public class Client {
 				while (true) {
 					try {
 						input(in.readObject());
-					} catch (IOException | ClassNotFoundException e) {
+					} catch (IOException e) {
+						try {
+							in.close();
+							out.close();
+							socket.close();
+						} catch (IOException e1) {
+							e1.printStackTrace();
+						}
+						break;
+					} catch (ClassNotFoundException e) {
 						e.printStackTrace();
 					}
 				}
@@ -34,12 +43,14 @@ public class Client {
 	public void input(Object o) {
 		ServerMain.log(o.getClass().getName());
 		switch (o.getClass().getName()) {
-		case "UserID":
-			ServerMain.log(((UserID) o).getUserID());
-			output(ServerMain.game.level);
+		case "LoginData":
+			LoginData loginData = (LoginData) o;
+			Player player = new Player(this, loginData.getUserID());
+			ServerMain.game.addPlayer(player);
+			player.changeLocation(ServerMain.game.getDungeon("LOBBY1"));
 			break;
 		default:
-			ServerMain.log(o.getClass().getName());
+			ServerMain.log("Unknown input class type: " + o.getClass().getName());
 			break;
 		}
 	}

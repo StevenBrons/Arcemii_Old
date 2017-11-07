@@ -5,7 +5,7 @@ import entities.Entity;
 import objects.Obj;
 import tiles.Tile;
 
-public class Level implements Serializable {
+public class Dungeon implements Serializable {
 
 	/**
 	 * 
@@ -16,11 +16,13 @@ public class Level implements Serializable {
 	int height = 10;
 
 	Tile[][] tiles = new Tile[width][height];
-	ArrayList<Obj> object = new ArrayList<>();
+	ArrayList<Obj> objects = new ArrayList<>();
 	ArrayList<Entity> entities = new ArrayList<>();
 
-	Level() {
-		System.out.println("Level gemaakt");
+	String id;
+
+	Dungeon() {
+
 	}
 
 }

@@ -1,6 +1,6 @@
 import java.io.Serializable;
 
-class UserID implements Serializable {
+class LoginData implements Serializable {
 
 	/**
 	 * 
@@ -9,7 +9,7 @@ class UserID implements Serializable {
 	
 	private String userID;
 
-	public UserID(String userID) {
+	public LoginData(String userID) {
 		this.userID = userID;
 	}
 

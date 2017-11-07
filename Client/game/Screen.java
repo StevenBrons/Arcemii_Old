@@ -11,7 +11,7 @@ public class Screen extends Canvas {
 		setBackground(Color.WHITE);
 	}
 
-	public void drawAll(Level l) {
+	public void drawAll(Dungeon l) {
 		BufferStrategy bs = getBufferStrategy();
 		if (bs == null) {
 			createBufferStrategy(3);
@@ -31,7 +31,7 @@ public class Screen extends Canvas {
 		bs.show();
 	}
 
-	public void drawLevel(Graphics2D g, Level l) {
+	public void drawLevel(Graphics2D g, Dungeon l) {
 		for (int i = 0; i < l.tiles.length; i++) {
 			for (int j = 0; j < l.tiles[i].length; j++) {
 				g.setColor(l.tiles[i][j].c);

@@ -1,14 +1,15 @@
 import java.util.ArrayList;
+import java.util.logging.Level;
 
 public class GameHandler {
 
 	boolean running = false;
 	ArrayList<Player> players = new ArrayList<>();
-	TestGenerator test = new TestGenerator();
-	Level level;
+	ArrayList<Dungeon> dungeons = new ArrayList<>();
+
+	DungeonCreator dungeonLoader = new DungeonCreator();
 
 	public GameHandler() {
-		level = test.makeLevel(10, 10);
 	}
 
 	public void start() {
@@ -32,6 +33,14 @@ public class GameHandler {
 
 	public void addPlayer(Player p) {
 		players.add(p);
+	}
+
+	public Dungeon getDungeon(String id) {
+		for (Dungeon dungeon : dungeons) {
+			dungeon.id.equals(id);
+			return dungeon;
+		}
+		return dungeonLoader.createDungeon(id);
 	}
 
 }

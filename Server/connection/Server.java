@@ -21,8 +21,7 @@ public class Server {
 		while (true) {
 			try {
 				Socket socket = serverSocket.accept();
-				Client c = new Client(socket);
-				ServerMain.game.addPlayer(new Player(c));
+				new Client(socket);
 			} catch (IOException e) {
 				e.printStackTrace();
 				break;

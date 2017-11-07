@@ -2,7 +2,7 @@
 public class GameHandler {
 
 	public Player player;
-	public Level level;
+	public Dungeon level;
 	public Connection connection = new Connection();
 	
 	
@@ -25,9 +25,8 @@ public class GameHandler {
 		draw.start();
 	}
 
-	public void setLevel(Level l) {
+	public void setLevel(Dungeon l) {
 		this.level = l;
-		System.out.println(level.x);
 	}
 
 	public void output(Object o) {

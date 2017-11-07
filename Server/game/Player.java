@@ -1,13 +1,24 @@
-class Player {
 
-	Client client;
+import entities.Entity;
 
-	double x = 0;
-	double y = 0;
-	String location = "";
+class Player extends Entity {
 
-	public Player(Client client) {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public String id;
+	transient Client client;
+	String dungeonId;
+
+	public Player(Client client, String id) {
 		this.client = client;
+	}
+
+	public void changeLocation(Dungeon dungeon) {
+		this.dungeonId = dungeon.id;
+		dungeon.enter(this);
+		client.output(dungeon);
 	}
 
 }

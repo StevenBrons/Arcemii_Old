@@ -1,23 +1,18 @@
 import tiles.Tile;
 
-public class TestGenerator {
+public class TestGenerator extends Generator {
 
-	public TestGenerator() {
-		System.out.println("Generator gemaakt");
-	}
-	
-	public Level makeLevel(int width, int height) {
-		Level l = new Level();
-		System.out.println("makeLevel wordt aangeroepen");
-		l.tiles = new Tile[width][height];
-		for (int x = 0; x < width; x++) {
-			for (int y = 0; y < height; y++) {
-				l.tiles[x][y] = new Tile();
-				l.tiles[x][y].posx = x;
-				l.tiles[x][y].posy = y;
+	public Dungeon generate(GeneratorSettings s) {
+		Dungeon d = new Dungeon();
+		d.tiles = new Tile[s.width][s.height];
+		for (int x = 0; x < s.width; x++) {
+			for (int y = 0; y < s.height; y++) {
+				d.tiles[x][y] = new Tile();
+				d.tiles[x][y].posx = x;
+				d.tiles[x][y].posy = y;
 			}
 		}
-		return l;
-}
-	
+		return d;
+	}
+
 }

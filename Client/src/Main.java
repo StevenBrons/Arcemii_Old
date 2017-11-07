@@ -5,7 +5,7 @@ import java.util.prefs.Preferences;
 public class Main {
 
 	public static final String REG_KEY = "archemii";
-	public static UserID userID;
+	public static LoginData userID;
 
 	static GameHandler handler = new GameHandler();
 	static Frame frame = new Frame();
@@ -23,7 +23,7 @@ public class Main {
 		handler.start();
 	}
 
-	public static UserID getUserID() {
+	public static LoginData getUserID() {
 		Preferences userPref = Preferences.userRoot();
 		String id = userPref.get(REG_KEY, "");
 		if (id.equals("")) {
@@ -32,7 +32,7 @@ public class Main {
 			id = new String(Base64.getEncoder().encode(bytes));
 			userPref.put(REG_KEY, id);
 		}
-		return new UserID(id);
+		return new LoginData(id);
 	}
 
 }

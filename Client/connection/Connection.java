@@ -21,10 +21,10 @@ public class Connection {
 					@SuppressWarnings("resource")
 					Socket socket = new Socket(SERVER_NAME, SERVER_PORT);
 					System.out.println("Just connected to " + socket.getRemoteSocketAddress());
-					
+
 					out = new ObjectOutputStream(socket.getOutputStream());
 					in = new ObjectInputStream(socket.getInputStream());
-					
+
 					while (true) {
 						try {
 							input(in.readObject());
@@ -43,8 +43,8 @@ public class Connection {
 
 	public void input(Object o) {
 		switch (o.getClass().getName()) {
-		case "Level":
-			Main.handler.setLevel((Level) o);
+		case "Dungeon":
+			Main.handler.setLevel((Dungeon) o);
 			break;
 		default:
 			System.err.println(o.getClass().getName());
