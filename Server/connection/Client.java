@@ -41,7 +41,7 @@ public class Client {
 	}
 
 	public void input(Object o) {
-		ServerMain.log(o.getClass().getName());
+		System.out.println(o.getClass().getName());
 		switch (o.getClass().getName()) {
 		case "LoginData":
 			LoginData loginData = (LoginData) o;
@@ -50,7 +50,7 @@ public class Client {
 			player.changeLocation(ServerMain.game.getDungeon("LOBBY1"));
 			break;
 		default:
-			ServerMain.log("Unknown input class type: " + o.getClass().getName());
+			System.out.println("Unknown input class type: " + o.getClass().getName());
 			break;
 		}
 	}

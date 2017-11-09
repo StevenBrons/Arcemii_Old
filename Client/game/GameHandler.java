@@ -5,8 +5,6 @@ public class GameHandler {
 	public Dungeon level;
 	public Connection connection = new Connection();
 	
-	
-
 	public void start() {
 		Thread draw = new Thread(new Runnable() {
 			@Override

@@ -1,3 +1,7 @@
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
+
 public class ServerMain {
 
 	static Database database = new Database();
@@ -7,16 +11,8 @@ public class ServerMain {
 	public static void main(String[] args) {
 		Server s = new Server();
 		s.start();
-		log("hoi");
-		log("hoi");
-		log("hoi");
-		log("hoi");
-		log("hoi");
 
-	}
-
-	public static void log(String s) {
-		frame.list.log(s);
+		System.setOut(new PrintStream(frame.console.output));
 	}
 
 }

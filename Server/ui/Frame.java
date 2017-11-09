@@ -10,7 +10,7 @@ public class Frame extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	List list = new List();
+	Console console = new Console();
 
 	public Frame() {
 		setVisible(true);
@@ -18,7 +18,7 @@ public class Frame extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setTitle("Server");
-		add(new JScrollPane(list), BorderLayout.CENTER);
+		add(new JScrollPane(console), BorderLayout.CENTER);
 	}
 
 }

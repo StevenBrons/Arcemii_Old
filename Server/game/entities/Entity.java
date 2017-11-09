@@ -16,7 +16,7 @@ public class Entity implements Serializable {
 	double y;
 
 	public void update() {
-
+		
 	}
 
 }
