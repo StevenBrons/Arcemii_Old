@@ -24,10 +24,32 @@ public class GameHandler {
 						break;
 					}
 
+					long t = System.nanoTime();
+					updateDungeons();
+					sendUpdate();
+
+					try {
+						Thread.sleep(100 - ((System.nanoTime() - t) * 1000));
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+
 				}
 			}
 		});
 		t.start();
+	}
+
+	public void updateDungeons() {
+		for (int i = 0; i < dungeons.size(); i++) {
+			dungeons.get(i).update();
+		}
+	}
+
+	public void sendUpdate() {
+		for (int i = 0; i < dungeons.size(); i++) {
+			dungeons.get(i).sendUpdate();
+		}
 	}
 
 	public void addPlayer(Player p) {

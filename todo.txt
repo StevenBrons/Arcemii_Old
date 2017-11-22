@@ -1,0 +1,46 @@
+Dungeon Generator:
+Kijken naar dungeon-generator structuur (hoe het nu gedaan is)
+Zoeken naar de goede plek om de dungeon te genereren
+Zoeken waar een Tile class geplaatst moet worden
+Het maken van een NormalStoneBrick Tile class
+Alle tiles van een dungeon naar NormalStoneBrick zetten
+Hele simple dungeon genereren (gewoon leeg met 3 muur blokjes etc...)
+
+Textures:
+Een standaard-(placeholder)-grond maken (gewoon grijs vlakb basically)
+Besluiten welk aanzicht het spel gaat hebben (pure top, top/side, all side)
+5 tiles maken in het goede perspectief (gewoon met zwart wit en lelijk het perspectief testen)
+Met de test-perspectief-tiles een dungeon room van 6 * 6 maken (in paint)
+Een hoofdkleur kiezen (ik denk voor de eerste dungeon gewoon grijs-ig)
+De 5 placeholder-perspectief tiles vervangen door eerste ingevulde varianten
+Met de ingevulde-tiles een dungeon room van 6 * 6 maken (in paint)
+Tiles verbeteren
+
+Frame:
+Een JFrame maken (met titel en exitonclose)
+Aan het JFrame een cardlayout panel toevoegen
+Aan het cardlayoutpanel het gamepanel toevoegen
+ZORG DAT DE CARDLAYOUT STANDAARD OP DE GAME STAAT (als ik test)
+Een fatsoenlijke switch van showend-panel method maken in cardlayoutpanel
+Een hoofdmenu panel maken
+Aan het hoofdmenu panel twee knoppen en een textfield toevoegen
+Een variable maken in Main genaamd name
+Als de variable name leeg is, plaats een textfield (om een naam in te vullen), als de variable vol is, maak een label met deze naam
+Eventuele als klik dan verdwijn en replace systeem maken (net als Million Dollar Run)
+Een als druk op knop, dan switch naar gamepanel ding maken
+
+Style:
+Bedenk een rand-dikte voor alle knoppen (misschien zelfs geen rand)
+Bedenk een main-color voor de ui knoppen/textfields
+Bedenk wat de achtergrond van de knoppen/textfields moet worden (een plaatje?)
+Maak een background-placeholder plaatje voor het hoofdmenu en plaats deze
+Maak een background-placeholder (plaatje) voor de knoppen
+Maak de background plaatjes --> let op functionaliteit > alles
+Bedenk wat er gebeurt als je over de knoppen/textfields hovert
+Programmeer een on-hover
+
+GameUI:
+Ontwerp een hitpoint icon
+Ontwerp een mana (ik denk toch wel) icon
+Kies, per hitpoint icon's toevoegen (minecraft), een balk maken met icon er voor, het icon met een getal er achter
+Maak het vorig gekeuze ding gebaseerd op de mana/health/maxhealth/maxmana variablen

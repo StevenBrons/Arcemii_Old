@@ -41,7 +41,6 @@ public class Client {
 	}
 
 	public void input(Object o) {
-		System.out.println(o.getClass().getName());
 		switch (o.getClass().getName()) {
 		case "LoginData":
 			LoginData loginData = (LoginData) o;

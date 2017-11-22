@@ -9,4 +9,10 @@ public class Entity implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	int id;
+	double velx = 0;
+	double vely = 0;
+	double x = 0;
+	double y = 0;
+
 }

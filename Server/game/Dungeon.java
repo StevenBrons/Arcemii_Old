@@ -7,7 +7,7 @@ import entities.Entity;
 import objects.Obj;
 import tiles.Tile;
 
-public class Dungeon implements Serializable{
+public class Dungeon implements Serializable {
 
 	/**
 	 * 
@@ -19,6 +19,7 @@ public class Dungeon implements Serializable{
 	Tile[][] tiles = new Tile[width][height];
 	ArrayList<Obj> objects = new ArrayList<>();
 	ArrayList<Entity> entities = new ArrayList<>();
+	transient ArrayList<Player> players = new ArrayList<>();
 
 	String id;
 
@@ -35,7 +36,13 @@ public class Dungeon implements Serializable{
 	}
 
 	public void enter(Player player) {
+		players.add(player);
 		entities.add(player);
+	}
+
+	public void sendUpdate() {
+		for (int i = 0; i < players.size(); i++) {
+		}
 	}
 
 }

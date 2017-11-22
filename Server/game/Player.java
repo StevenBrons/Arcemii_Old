@@ -1,4 +1,6 @@
 
+import java.io.IOException;
+
 import entities.Entity;
 
 class Player extends Entity {
@@ -11,6 +13,11 @@ class Player extends Entity {
 	transient Client client;
 	String dungeonId;
 
+	boolean UP = false;
+	boolean DOWN = false;
+	boolean LEFT = false;
+	boolean RIGHT = false;
+
 	public Player(Client client, String id) {
 		this.client = client;
 	}
@@ -18,7 +25,17 @@ class Player extends Entity {
 	public void changeLocation(Dungeon dungeon) {
 		this.dungeonId = dungeon.id;
 		dungeon.enter(this);
+
+		try {
+			System.out.println(ServerMain.sizeof(dungeon));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 		client.output(dungeon);
+	}
+
+	public void update() {
 	}
 
 }
