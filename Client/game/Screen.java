@@ -17,14 +17,14 @@ public class Screen extends Canvas {
 			createBufferStrategy(3);
 			return;
 		}
-
 		if (l == null) {
 			return;
 		}
 
 		Graphics2D g = (Graphics2D) bs.getDrawGraphics();
-		drawLevel(g, l);
 
+		g.clearRect(0, 0, getWidth(), getHeight());
+		drawLevel(g, l);
 		g.drawImage(ResLoader.getTexture("t1"), 19, 19, null);
 
 		g.dispose();
