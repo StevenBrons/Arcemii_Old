@@ -19,6 +19,7 @@ public class Frame extends JFrame {
 		setLocationRelativeTo(null);
 		setTitle("Server");
 		add(new JScrollPane(console), BorderLayout.CENTER);
+		validate();
 	}
 
 }
