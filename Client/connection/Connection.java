@@ -46,6 +46,9 @@ public class Connection {
 		case "Dungeon":
 			Main.handler.setLevel((Dungeon) o);
 			break;
+		case "Update":
+			Main.handler.level.update(((Update) o).data);
+			break;
 		default:
 			System.err.println(o.getClass().getName());
 			break;

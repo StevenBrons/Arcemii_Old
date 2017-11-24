@@ -41,7 +41,9 @@ public class Dungeon implements Serializable {
 	}
 
 	public void sendUpdate() {
+		Update update = new Update(entities);
 		for (int i = 0; i < players.size(); i++) {
+			players.get(i).output(update);
 		}
 	}
 

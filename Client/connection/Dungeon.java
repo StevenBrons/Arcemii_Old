@@ -25,4 +25,8 @@ public class Dungeon implements Serializable {
 
 	}
 
+	public void update(byte[][] data) {
+		System.out.println(data);
+	}
+
 }

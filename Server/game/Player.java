@@ -35,6 +35,10 @@ class Player extends Entity {
 		client.output(dungeon);
 	}
 
+	public void output(Object o) {
+		client.output(o);
+	}
+
 	public void update() {
 	}
 
