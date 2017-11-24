@@ -1,0 +1,46 @@
+
+VOORLOPING *INCOMPLEET* PVA ARCEMII
+
+
+Wanneer				Wat				Wie			Notes
+===============================================================================================================
+
+
+
+Week 47			Maken PvA 			Thijs			Thijs weinig weekend
+			Maken todo-list			Steven			
+			Frameding-basis maken		Thijs
+			Placeholder tiles maken		Thijs
+
+			
+Week 48			Begin dungeon generator		Thijs			Thijs sinterklaas weekend
+			Speler laten lopen		Thijs of Steven			
+
+
+Week 49			Dungeon generator werkend	Thijs
+			Hoofdmenu mooi enzo		Thijs en Steven
+			Stone tileset maken		Thijs
+				
+Week 50			2 tilesets maken		Thijs		
+			Multiplayerheid			Steven
+			UI				Thijs
+
+
+Week 51			Icons enzo maken		Thijs
+			Icons toevoegen			Thijs
+
+
+
+Week 52			Werkende alfa versie +		Thijs en Steven		kerstvakantie	
+			user feedback verwerken		
+
+
+Week 01 		Werkende béta versie		Thijs en Steven		kerstvakantie
+
+
+
+Week 02
+
+
+
+Week 03
