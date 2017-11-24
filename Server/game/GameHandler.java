@@ -29,7 +29,8 @@ public class GameHandler {
 					sendUpdate();
 
 					try {
-						Thread.sleep(100 - ((System.nanoTime() - t) * 1000));
+						long i = (100 - ((System.nanoTime() - t) / 1000));
+						Thread.sleep(i < 0 ? 0 : i);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
