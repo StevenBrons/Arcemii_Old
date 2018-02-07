@@ -18,8 +18,9 @@ public class Main {
 		}
 
 		userID = getUserID();
-		System.out.println(userID.getUserID());
 		handler.output(userID);
+		
+		handler.output(new Join());
 		handler.start();
 	}
 

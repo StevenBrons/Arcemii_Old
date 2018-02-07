@@ -1,24 +1,26 @@
+import java.io.Serializable;
 import java.nio.ByteBuffer;
-import java.util.ArrayList;
-import entities.Entity;
 
-public class Update {
+public class Update implements Serializable{
 
-	byte[][] data;
-
-	public Update(ArrayList<Entity> e) {
-		data = new byte[e.size()][8 * 4];
-
-		for (int i = 0; i < e.size(); i++) {
-			byte[] b = new byte[4 + 8 * 4];
-			ByteBuffer.wrap(b).putInt(e.get(i).id);
-			ByteBuffer.wrap(b).putDouble(e.get(i).x);
-			ByteBuffer.wrap(b).putDouble(e.get(i).y);
-			ByteBuffer.wrap(b).putDouble(e.get(i).velx);
-			ByteBuffer.wrap(b).putDouble(e.get(i).vely);
-			data[i] = b;
-		}
-
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	byte[] data = new byte[0];
+	
+	public Update() {
 	}
-
+	
+	public Update(byte[] data) {
+		this.data = data;
+	}
+	
+	public void append(ByteBuffer buffer) {
+		ByteBuffer bb = ByteBuffer.allocate(buffer.capacity() + data.length);
+		bb.put(buffer);
+		bb.put(data);
+		data = bb.array();
+	}
 }

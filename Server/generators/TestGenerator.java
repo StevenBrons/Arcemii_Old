@@ -2,8 +2,8 @@ import tiles.Tile;
 
 public class TestGenerator extends Generator {
 
-	public Dungeon generate(GeneratorSettings s) {
-		Dungeon d = new Dungeon();
+	public Level generate(GeneratorSettings s) {
+		Level d = new Level();
 		d.tiles = new Tile[s.width][s.height];
 		for (int x = 0; x < s.width; x++) {
 			for (int y = 0; y < s.height; y++) {

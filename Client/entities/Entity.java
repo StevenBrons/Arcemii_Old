@@ -1,4 +1,4 @@
-package entities;
+
 
 import java.io.Serializable;
 
@@ -9,7 +9,10 @@ public class Entity implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	int id;
+	transient Level level;
+	Ability[] abilities = new Ability[0];
+
+	short id;
 	double velx = 0;
 	double vely = 0;
 	double x = 0;

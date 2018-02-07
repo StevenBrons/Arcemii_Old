@@ -2,11 +2,17 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.nio.ByteBuffer;
+
+import javax.swing.ButtonGroup;
 
 public class Client {
 
 	private ObjectInputStream in;
 	private ObjectOutputStream out;
+	private String userID;
+
+	Player player = null;
 
 	public Client(Socket socket) {
 		try {
@@ -41,14 +47,23 @@ public class Client {
 	}
 
 	public void input(Object o) {
-
 		switch (o.getClass().getName()) {
 		case "LoginData":
 			LoginData loginData = (LoginData) o;
-			Player player = new Player(this, loginData.getUserID());
-			ServerMain.game.addPlayer(player);
-			player.changeLocation(ServerMain.game.getDungeon("Dungeon"));
+			userID = loginData.getUserID();
+			break;
+		case "Join":
+			Join join = (Join) o;
+			player = new Player(this, userID);
+			ServerMain.game.getLevel(join.levelID).enter(player);
 			ServerMain.game.start();
+		    ByteBuffer buffer = ByteBuffer.allocate(2);
+		    buffer.putShort(player.id);
+			output(new Update(new byte[] {buffer.get(0),buffer.get(1),1}));
+			break;
+		case "Update":
+			Update update = (Update) o;
+			player.level.input(player, update);
 			break;
 		default:
 			System.out.println("Unknown input class type: " + o.getClass().getName());

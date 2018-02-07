@@ -1,12 +1,12 @@
 import java.io.Serializable;
 
-public class U implements Serializable {
+public class Join implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
-	byte[] b;
-
+	
+	String levelID = "test";
+	
 }

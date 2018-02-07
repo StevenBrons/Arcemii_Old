@@ -12,15 +12,9 @@ public class ServerMain {
 	public static void main(String[] args) {
 		Server s = new Server();
 		s.start();
-
+		
+		System.setErr(new PrintStream(frame.console.output));
 		System.setOut(new PrintStream(frame.console.output));
-
-		try {
-			System.out.println(sizeof(new U()));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
 	}
 
 	public static int sizeof(Object obj) throws IOException {

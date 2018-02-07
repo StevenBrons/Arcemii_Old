@@ -3,8 +3,7 @@ import java.util.ArrayList;
 public class GameHandler {
 
 	boolean running = false;
-	ArrayList<Player> players = new ArrayList<>();
-	ArrayList<Dungeon> dungeons = new ArrayList<>();
+	ArrayList<Level> levels = new ArrayList<>();
 
 	DungeonCreator dungeonLoader = new DungeonCreator();
 
@@ -19,7 +18,7 @@ public class GameHandler {
 			@Override
 			public void run() {
 				while (true) {
-					if (players.size() == 0) {
+					if (levels.size() == 0) {
 						running = false;
 						break;
 					}
@@ -42,27 +41,30 @@ public class GameHandler {
 	}
 
 	public void updateDungeons() {
-		for (int i = 0; i < dungeons.size(); i++) {
-			dungeons.get(i).update();
+		for (int i = 0; i < levels.size(); i++) {
+			levels.get(i).update();
 		}
 	}
 
 	public void sendUpdate() {
-		for (int i = 0; i < dungeons.size(); i++) {
-			dungeons.get(i).sendUpdate();
+		for (int i = 0; i < levels.size(); i++) {
+			levels.get(i).sendUpdate();
 		}
 	}
 
-	public void addPlayer(Player p) {
-		players.add(p);
-	}
-
-	public Dungeon getDungeon(String id) {
-		for (Dungeon dungeon : dungeons) {
-			dungeon.id.equals(id);
-			return dungeon;
+	public Level getLevel(String id) {
+		for (Level level : levels) {
+			System.out.println(id);
+			System.out.println(level.id);
+			if (level.id.equals(id)) {
+				System.out.println("asdf");
+				return level;
+			}
 		}
-		return dungeonLoader.createDungeon(id);
+		
+		Level level = dungeonLoader.createDungeon(id);
+		levels.add(level);
+		return level; 
 	}
 
 }

@@ -1,4 +1,4 @@
-package entities;
+
 
 import java.io.Serializable;
 import java.util.Random;
@@ -10,7 +10,10 @@ public class Entity implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public int id;
+	Ability[] abilities = new Ability[0];
+	Level level;
+	
+	public short id;
 
 	public double velx = 0;
 	public double vely = 0;
@@ -18,13 +21,17 @@ public class Entity implements Serializable {
 	public double x = 0;
 	public double y = 0;
 
-	public Entity() {
-		id = new Random().nextInt();
+	public Entity(Level level) {
+		 this.level = level;
 	}
 
 	public void update() {
 		x += velx;
 		y += vely;
+	}
+	
+	public void invoke() {
+	
 	}
 
 }

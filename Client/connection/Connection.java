@@ -43,11 +43,11 @@ public class Connection {
 
 	public void input(Object o) {
 		switch (o.getClass().getName()) {
-		case "Dungeon":
-			Main.handler.setLevel((Dungeon) o);
+		case "Level":
+			Main.handler.setLevel((Level) o);
 			break;
 		case "Update":
-			Main.handler.level.update(((Update) o).data);
+			Main.handler.level.input(((Update) o));
 			break;
 		default:
 			System.err.println(o.getClass().getName());

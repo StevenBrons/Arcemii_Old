@@ -1,13 +1,12 @@
 import java.io.Serializable;
+import java.nio.ByteBuffer;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Base64;
 
-import entities.Entity;
-import objects.Obj;
 import tiles.Tile;
 
-public class Dungeon implements Serializable {
+public class Level implements Serializable {
 
 	/**
 	 * 
@@ -17,13 +16,14 @@ public class Dungeon implements Serializable {
 	int height = 10;
 
 	Tile[][] tiles = new Tile[width][height];
-	ArrayList<Obj> objects = new ArrayList<>();
 	ArrayList<Entity> entities = new ArrayList<>();
 	transient ArrayList<Player> players = new ArrayList<>();
-
+	transient Update update = new Update();
+	transient short IDCount = 0;
+	
 	String id;
 
-	public Dungeon() {
+	public Level() {
 		byte[] bytes = new byte[24];
 		new SecureRandom().nextBytes(bytes);
 		id = new String(Base64.getEncoder().encode(bytes));
@@ -36,15 +36,43 @@ public class Dungeon implements Serializable {
 	}
 
 	public void enter(Player player) {
+		player.level = this;
+
 		players.add(player);
-		entities.add(player);
+		addEntity(player);
+		
+		player.client.output(this);
 	}
 
 	public void sendUpdate() {
-		Update update = new Update(entities);
 		for (int i = 0; i < players.size(); i++) {
 			players.get(i).output(update);
 		}
+	}
+
+	public void addEntity(Entity e) {
+		e.id = IDCount;
+		IDCount++;
+	}
+	
+	public void decodeInput(Entity e,byte[] bytes) {
+		ByteBuffer bb = ByteBuffer.wrap(bytes);
+		while (bb.hasRemaining()) {
+			getEntity(bb.getShort()).abilities[bb.get() + 128].execute(bb);
+		}		
+	}
+	
+	public Entity getEntity(short id) {
+		for (Entity e: entities) {
+			if (e.id == id) {
+				return e;
+			}
+		}
+		return null;
+	}
+
+	public void input(Entity e, Update update) {
+		decodeInput(e,update.data);
 	}
 
 }
