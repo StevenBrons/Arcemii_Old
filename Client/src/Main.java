@@ -1,12 +1,12 @@
 import java.security.SecureRandom;
 import java.util.Base64;
 import java.util.prefs.Preferences;
+import java.awt.color.*;
 
 public class Main {
 
 	public static final String REG_KEY = "archemii";
 	public static LoginData userID;
-
 	static GameHandler handler = new GameHandler();
 	static Frame frame = new Frame();
 
