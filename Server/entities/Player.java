@@ -9,8 +9,6 @@ public class Player extends Entity {
 	transient public String playerID;
 	transient Client client;
 
-	transient Ability[] abilities = new Ability[]{new UserIdentify(this),new Walk(this)}; 
-	
 	boolean UP = false;
 	boolean DOWN = false;
 	boolean LEFT = false;
@@ -19,6 +17,7 @@ public class Player extends Entity {
 	
 	public Player(Client client, String id) {
 		super(null);
+		abilities = new Ability[]{new UserIdentify(this),new Walk(this)}; 
 		this.client = client;
 		
 	}

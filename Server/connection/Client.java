@@ -59,7 +59,16 @@ public class Client {
 			ServerMain.game.start();
 		    ByteBuffer buffer = ByteBuffer.allocate(2);
 		    buffer.putShort(player.id);
-			output(new Update(new byte[] {buffer.get(0),buffer.get(1),1}));
+		    
+		    System.out.println(player.abilities.length);
+		    System.out.println(player.id);
+		    System.out.println(player.level.entities.get(0).id);
+		    System.out.println(player.level.entities.size());
+
+		    System.out.println(player.level.getEntity(player.id).abilities.length);
+		    
+			output(player.level);
+			output(new Update(new byte[] {buffer.get(0),buffer.get(1),0 - 128}));
 			break;
 		case "Update":
 			Update update = (Update) o;

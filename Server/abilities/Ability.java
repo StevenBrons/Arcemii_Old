@@ -1,6 +1,11 @@
+import java.io.Serializable;
 import java.nio.ByteBuffer;
 
-public class Ability {
+public class Ability implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public Entity executor;
 
 	public Ability(Entity exEntity) {

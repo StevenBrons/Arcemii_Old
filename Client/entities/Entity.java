@@ -10,7 +10,7 @@ public class Entity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	transient Level level;
-	Ability[] abilities = new Ability[0];
+	Ability[] abilities;
 
 	short id;
 	double velx = 0;

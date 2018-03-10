@@ -17,23 +17,28 @@ public class Level implements Serializable {
 	Tile[][] tiles = new Tile[width][height];
 	ArrayList<Entity> entities = new ArrayList<>();
 	Player player;
-	
+
 	String id;
 	transient Update update = new Update();
-	
+
 	public void input(Update update) {
 		decodeInput(update.data);
 	}
-	
+
 	public void decodeInput(byte[] bytes) {
 		ByteBuffer bb = ByteBuffer.wrap(bytes);
 		while (bb.hasRemaining()) {
-			getEntity(bb.getShort()).abilities[bb.get() + 128].execute(bb);
+			Entity e = getEntity(bb.getShort());
+			if (e != null) {
+				e.abilities[bb.get() + 128].execute(bb);
+			}else {
+				bb.get();
+			}
 		}
 	}
 
 	public Entity getEntity(short id) {
-		for (Entity e: entities) {
+		for (Entity e : entities) {
 			if (e.id == id) {
 				return e;
 			}
